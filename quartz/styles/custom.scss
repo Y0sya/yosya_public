@@ -36,12 +36,20 @@ h1, h2, h3, h4, h5, h6 {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif !important;
 }
 
-/* Article title */
+/* Article title - individual memo pages */
 h1.article-title {
   font-size: 1.1rem;
   font-weight: 600;
   color: #000;
   margin-bottom: 0.5rem;
+}
+
+/* Index page title - "notes" heading */
+body[data-slug="index"] h1.article-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 2rem;
 }
 
 /* Content meta (date display) */
