@@ -1,3 +1,91 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+/* joseph's notes - Custom Styles */
+/* To customize, edit: Obsidian Vault/.site/custom.css */
+/* Then run sync-css.sh to copy styles here */
+/* Note: Crimson Pro font is loaded via quartz.config.ts theme.typography */
+
+/* Base layout - strip to minimal */
+.page {
+  max-width: 750px !important;
+  margin: 0 auto !important;
+  padding: 2rem !important;
+}
+
+.left, .right, .sidebar {
+  display: none !important;
+}
+
+.center {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100% !important;
+  grid-column: 1 / -1 !important;
+}
+
+/* Body text - Crimson Pro serif */
+article {
+  font-family: 'Crimson Pro', 'Iowan Old Style', 'Palatino Linotype', serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+/* Headings - system sans-serif */
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif !important;
+}
+
+/* Article title */
+h1.article-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+/* Content meta (date display) */
+.content-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* All links */
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ff5722 !important;
+}
+
+/* Minimal footer */
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: none;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+/* Hide all unwanted Quartz UI elements */
+.darkmode, .search-container, .graph, .toc, .explorer, .backlinks, .page-header {
+  display: none !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .page {
+    padding: 1.5rem !important;
+  }
+
+  article {
+    font-size: 16px;
+  }
+
+  h1.article-title {
+    font-size: 1rem;
+  }
+}
