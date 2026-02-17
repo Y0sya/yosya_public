@@ -13,7 +13,7 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: false,
     locale: "en-US",
-    baseUrl: "localhost",
+    baseUrl: "y0sya.github.io/yosya_public",
     ignorePatterns: ["private", "templates", ".obsidian", ".site"],
     defaultDateType: "created",
     theme: {
