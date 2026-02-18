@@ -24,6 +24,8 @@ import Comments from "./Comments"
 import Flex from "./Flex"
 import ConditionalRender from "./ConditionalRender"
 import MemoFeed from "./MemoFeed"
+import SiteHeader from "./SiteHeader"
+import MemoNav from "./MemoNav"
 
 export {
   ArticleTitle,
@@ -52,4 +54,6 @@ export {
   Flex,
   ConditionalRender,
   MemoFeed,
+  SiteHeader,
+  MemoNav,
 }
