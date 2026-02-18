@@ -1,5 +1,4 @@
 @echo off
-echo Publishing joseph's notes...
 cd /d "%~dp0"
-bash publish.sh
+node publish.cjs
 pause

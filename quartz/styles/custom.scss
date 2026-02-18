@@ -1,9 +1,10 @@
 @use "./base.scss";
 
 /* joseph's notes - Custom Styles */
-/* To customize, edit: Obsidian Vault/.site/custom.css */
-/* Then run sync-css.sh to copy styles here */
+/* Edit this file to change the look of your site */
+
 /* Note: Crimson Pro font is loaded via quartz.config.ts theme.typography */
+/* Do NOT use @import url() here - it breaks SCSS compilation */
 
 /* Base layout - strip to minimal */
 .page {
