@@ -210,6 +210,15 @@ a:hover {
   color: #ff5722 !important;
 }
 
+/* Strip Quartz's grey highlight from all internal links */
+a.internal {
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  line-height: inherit !important;
+  vertical-align: baseline !important;
+}
+
 /* ════════════════════════════════════════
    FOOTER
    ════════════════════════════════════════ */
