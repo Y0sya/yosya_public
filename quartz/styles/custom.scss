@@ -1,66 +1,199 @@
 @use "./base.scss";
 
-/* joseph's notes - Custom Styles */
-/* Edit this file to change the look of your site */
+/* joseph's notes — Custom Styles */
 
-/* Note: Crimson Pro font is loaded via quartz.config.ts theme.typography */
-/* Do NOT use @import url() here - it breaks SCSS compilation */
-
-/* Base layout - strip to minimal */
-.page {
-  max-width: 750px !important;
-  margin: 0 auto !important;
-  padding: 2rem !important;
-}
-
-.left, .right, .sidebar {
-  display: none !important;
-}
-
-.center {
-  margin: 0 !important;
+/* ── Kill body padding (handled by .page) ── */
+body {
   padding: 0 !important;
-  max-width: 100% !important;
-  grid-column: 1 / -1 !important;
-}
-
-/* Body text - Crimson Pro serif */
-article {
+  margin: 0 !important;
+  background: #fff;
   font-family: 'Crimson Pro', 'Iowan Old Style', 'Palatino Linotype', serif;
   font-size: 16px;
   line-height: 1.6;
   color: #1a1a1a;
 }
 
-/* Headings - system sans-serif */
+/* ── Page wrapper: 750px centered ── */
+.page {
+  max-width: 750px !important;
+  margin: 0 auto !important;
+  padding: 2rem !important;
+}
+
+/* ── Kill Quartz's grid — make body a plain column ── */
+#quartz-body,
+.page > #quartz-body {
+  display: block !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  gap: 0 !important;
+}
+
+/* ── Sidebars: gone ── */
+.left.sidebar,
+.right.sidebar {
+  display: none !important;
+}
+
+/* ── Center: plain block, full width ── */
+.center {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  grid-column: unset !important;
+}
+
+/* ── Page header: kill the 6rem top margin Quartz adds ── */
+.page-header,
+.page > #quartz-body .page-header {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  grid-area: unset !important;
+}
+
+/* ── Popover hint wrapper: strip all decoration ── */
+.popover-hint {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* ── Hide unwanted Quartz elements ── */
+hr,
+.darkmode,
+.search-container,
+.graph,
+.toc,
+.explorer,
+.backlinks {
+  display: none !important;
+}
+
+/* ════════════════════════════════════════
+   SITE HEADER — "joseph's notes"
+   Only on single post pages, not the feed
+   ════════════════════════════════════════ */
+
+body[data-slug="index"] .site-header {
+  display: none !important;
+}
+
+.site-header {
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.site-header a {
+  color: #666;
+  text-decoration: none;
+}
+
+.site-header a:hover {
+  color: #ff5722;
+}
+
+/* ════════════════════════════════════════
+   NAV ARROWS  ← →
+   ════════════════════════════════════════ */
+
+.memo-nav {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  display: flex !important;
+  gap: 1rem;
+}
+
+.memo-nav a {
+  color: #000;
+  text-decoration: none;
+}
+
+.memo-nav a:hover {
+  color: #ff5722;
+}
+
+.memo-nav-disabled {
+  color: #ccc;
+  cursor: default;
+}
+
+/* ════════════════════════════════════════
+   ARTICLE TITLE
+   ════════════════════════════════════════ */
+
+h1.article-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  color: #000 !important;
+  margin: 0 0 0.5rem 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  line-height: 1.3 !important;
+}
+
+/* "notes" heading on the feed index */
+body[data-slug="index"] h1.article-title {
+  font-size: 1.4rem !important;
+  color: #666 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* ════════════════════════════════════════
+   CONTENT META (date below post title)
+   ════════════════════════════════════════ */
+
+.content-meta {
+  font-size: 0.9rem !important;
+  color: #666 !important;
+  margin: 0 0 2rem 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+/* Hide "X min read" — keep only the date */
+.content-meta span {
+  display: none !important;
+}
+
+/* ════════════════════════════════════════
+   ARTICLE BODY
+   ════════════════════════════════════════ */
+
+article {
+  font-family: 'Crimson Pro', 'Iowan Old Style', 'Palatino Linotype', serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+article p {
+  margin-bottom: 1.2rem;
+}
+
+article p:last-child {
+  margin-bottom: 0;
+}
+
+/* ════════════════════════════════════════
+   HEADINGS — sans-serif everywhere
+   ════════════════════════════════════════ */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif !important;
 }
 
-/* Article title - individual memo pages */
-h1.article-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 0.5rem;
-}
+/* ════════════════════════════════════════
+   LINKS
+   ════════════════════════════════════════ */
 
-/* Index page title - "notes" heading */
-body[data-slug="index"] h1.article-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-/* Content meta (date display) */
-.content-meta {
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 2rem;
-}
-
-/* All links */
 a {
   color: #000;
   text-decoration: none;
@@ -70,21 +203,21 @@ a:hover {
   color: #ff5722 !important;
 }
 
-/* Minimal footer */
+/* ════════════════════════════════════════
+   FOOTER
+   ════════════════════════════════════════ */
+
 footer {
-  margin-top: 3rem;
-  padding-top: 1rem;
-  border-top: none;
+  margin-top: 3rem !important;
+  border-top: none !important;
   font-size: 0.85rem;
-  color: #666;
+  color: #999;
 }
 
-/* Hide all unwanted Quartz UI elements */
-.darkmode, .search-container, .graph, .toc, .explorer, .backlinks {
-  display: none !important;
-}
+/* ════════════════════════════════════════
+   MOBILE
+   ════════════════════════════════════════ */
 
-/* Mobile responsive */
 @media (max-width: 768px) {
   .page {
     padding: 1.5rem !important;
@@ -95,6 +228,10 @@ footer {
   }
 
   h1.article-title {
-    font-size: 1rem;
+    font-size: 1rem !important;
+  }
+
+  body[data-slug="index"] h1.article-title {
+    font-size: 1.2rem !important;
   }
 }
