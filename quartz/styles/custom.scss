@@ -110,13 +110,20 @@ body[data-slug="index"] .site-header {
   gap: 1rem;
 }
 
-.memo-nav a {
+.memo-nav a,
+.memo-nav a.internal {
   color: #000;
   text-decoration: none;
+  background: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  line-height: inherit !important;
 }
 
-.memo-nav a:hover {
+.memo-nav a:hover,
+.memo-nav a.internal:hover {
   color: #ff5722;
+  background: none !important;
 }
 
 .memo-nav-disabled {

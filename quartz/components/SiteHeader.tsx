@@ -1,9 +1,11 @@
-import { QuartzComponent, QuartzComponentConstructor } from "./types"
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { pathToRoot } from "../util/path"
 
-const SiteHeader: QuartzComponent = () => {
+const SiteHeader: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
+  const root = pathToRoot(fileData.slug!)
   return (
     <div class="site-header">
-      <a href="/">joseph's notes</a>
+      <a href={root}>joseph's notes</a>
     </div>
   )
 }
